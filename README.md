@@ -102,7 +102,7 @@ Screenshots to take and include in your repository in the screenshots/ directory
 
 * Output of "sudo service counter status" showing your service is enabled and running
 * Output of "tail -f /tmp/currentCount.out" showing the service working
-* Output of running "sudo service counter stop" followed by "sudo service counter start"
+* Output of running "sudo service counter stop" followed by c"
 * After stopping the service, show a screenshot of the /tmp/currentCount.out file with your signal handler note that you're shutting down the service
 
 Snag those screenshots and put them in the screenshots/ directory of your repo and check them in.

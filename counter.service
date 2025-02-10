@@ -1,3 +1,18 @@
 # This is the systemd service file that you'll need to configure and install in the /lib/systemd/system/ directory so that systemd will know you to launch/start/stop your counter service.
+[Unit]
+Description=Simple Counter Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /usr/local/bin/counter_service.py
+Restart=always
+User=counter
+Group=counter
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
+
 
 
