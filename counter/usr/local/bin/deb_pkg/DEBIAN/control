@@ -1,0 +1,5 @@
+Package: counter_service
+Version: 2.0.0
+Architecture: all
+Maintainer: Sean Nickerson
+Description: A simple counter service for logging timestamps.

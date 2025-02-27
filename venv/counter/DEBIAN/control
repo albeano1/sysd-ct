@@ -1,0 +1,7 @@
+Package: mypackage
+Version: 2.0.0
+Architecture: all
+Maintainer: Sean
+Description: HW3
+ this is my HW3 assignment for crandle,
+ 

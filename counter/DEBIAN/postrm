@@ -1,0 +1,11 @@
+#!/bin/bash
+set -e
+
+# Remove system user if it exists
+if id "counteruser" &>/dev/null; then
+    userdel counteruser || true
+fi
+
+# Remove the systemd service reference
+systemctl daemon-reload
+systemctl reset-failed

@@ -1,0 +1,11 @@
+#!/bin/bash
+set -e
+
+# Create system user if it doesn't exist
+if ! id "counteruser" &>/dev/null; then
+    useradd --system --no-create-home --group nogroup counteruser
+fi
+
+# Enable and start the systemd service
+systemctl enable counter.service
+systemctl start counter.service

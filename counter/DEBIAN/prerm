@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+
+# Stop the counter service before removal
+systemctl stop counter.service || true
