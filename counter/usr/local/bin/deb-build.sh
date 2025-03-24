@@ -4,8 +4,8 @@ set -e
 
 PROJECT_NAME="counter_service"
 VERSION="2.0.0"
-DIST_DIR="dist"  # Updated to match the Makefile
-DEB_NAME="${PROJECT_NAME}-v${VERSION}.deb"
+DIST_DIR="dist"
+DEB_NAME="${PROJECT_NAME}_v${VERSION}.deb"  # Use underscore (_) instead of hyphen (-) in version
 INSTALL_DIR="/usr/local/bin"
 
 # Create package structure
