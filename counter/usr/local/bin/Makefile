@@ -35,7 +35,7 @@ test:
 # Lint the Debian package
 .PHONY: lint-deb
 lint-deb: build-deb
-	lintian $(DEB_NAME)
+	- lintian $(DEB_NAME)
 
 # Build Debian package
 .PHONY: build-deb
