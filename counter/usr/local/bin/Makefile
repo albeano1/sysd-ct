@@ -10,9 +10,17 @@ DEB_NAME = $(PROJECT_NAME)-v$(VERSION).deb
 .PHONY: all
 all: build
 
+# Install pip if not found
+.PHONY: install-pip
+install-pip:
+	@if ! command -v pip >/dev/null 2>&1; then \
+		echo "pip not found. Installing..."; \
+		python -m ensurepip --upgrade; \
+	fi
+
 # Install dependencies
 .PHONY: install-deps
-install-deps:
+install-deps: install-pip
 	@if ! command -v pyinstaller >/dev/null 2>&1; then \
 		echo "PyInstaller not found. Installing..."; \
 		pip install pyinstaller; \
