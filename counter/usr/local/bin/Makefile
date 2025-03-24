@@ -32,12 +32,21 @@ test:
 	@echo "Running unit tests..."
 	PYTHONPATH=$(PWD) pytest tests/
 
-# Lint the Debian package
-.PHONY: lint-deb
-lint-deb: build-deb
-	- lintian $(DEB_NAME)
-
 # Build Debian package
 .PHONY: build-deb
 build-deb: build
-	bash deb-build.sh
+	@if [ ! -f deb-build.sh ]; then \
+		echo "Error: deb-build.sh script not found!"; \
+		exit 1; \
+	fi
+	chmod +x deb-build.sh  # Ensure the script is executable
+	./deb-build.sh
+
+# Lint the Debian package
+.PHONY: lint-deb
+lint-deb: build-deb
+	@if ! command -v lintian >/dev/null 2>&1; then \
+		echo "Error: lintian is not installed. Please install it using 'sudo apt-get install lintian'."; \
+		exit 1; \
+	fi
+	lintian $(DEB_NAME)
