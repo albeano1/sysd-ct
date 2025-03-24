@@ -1,9 +1,9 @@
 # Project variables
-PROJECT_NAME = counter_service
+PROJECT_NAME = counter-service  # Use hyphen (-) instead of underscore (_) in project name
 VERSION = 2.0.0
 BUILD_DIR = build
 DIST_DIR = dist
-DEB_NAME = $(PROJECT_NAME)_v$(VERSION).deb  # Use underscore (_) instead of hyphen (-) in version
+DEB_NAME = $(PROJECT_NAME)-v$(VERSION).deb  # Use hyphen (-) instead of underscore (_) in version
 
 # Default target
 .PHONY: all
@@ -24,7 +24,7 @@ run: build
 # Clean generated files
 .PHONY: clean
 clean:
-	rm -rf $(BUILD_DIR) $(DIST_DIR) __pycache__ *.spec $(PROJECT_NAME)_v*.deb
+	rm -rf $(BUILD_DIR) $(DIST_DIR) __pycache__ *.spec $(PROJECT_NAME)-v*.deb
 
 # Unit Testing
 .PHONY: test

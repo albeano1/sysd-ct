@@ -2,10 +2,10 @@
 
 set -e
 
-PROJECT_NAME="counter_service"
+PROJECT_NAME="counter-service"  # Use hyphen (-) instead of underscore (_) in project name
 VERSION="2.0.0"
 DIST_DIR="dist"
-DEB_NAME="${PROJECT_NAME}_v${VERSION}.deb"  # Use underscore (_) instead of hyphen (-) in version
+DEB_NAME="${PROJECT_NAME}-v${VERSION}.deb"  # Use hyphen (-) instead of underscore (_) in version
 INSTALL_DIR="/usr/local/bin"
 
 # Create package structure
