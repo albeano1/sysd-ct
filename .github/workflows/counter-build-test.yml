@@ -24,18 +24,18 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest pyinstaller
 
-      - name: Navigate to counter/usr directory
-        run: cd counter/usr
+      - name: Navigate to counter/usr/local/bin directory
+        run: cd counter/usr/local/bin
 
       - name: Debug repository contents
         run: |
-          cd counter/usr
+          cd counter/usr/local/bin
           ls -la
           cat Makefile
 
       - name: Build project
         run: |
-          cd counter/usr
+          cd counter/usr/local/binsr/local/bin
           make build
 
   test:
