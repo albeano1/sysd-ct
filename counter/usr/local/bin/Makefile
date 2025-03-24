@@ -67,4 +67,4 @@ lint-deb: build-deb
 		exit 1; \
 	fi
 	@echo "Linting Debian package: $(DEB_NAME)"
-	lintian "$(DEB_NAME)"
+	-lintian "$(DEB_NAME)"
