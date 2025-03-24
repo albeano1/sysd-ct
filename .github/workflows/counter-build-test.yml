@@ -24,8 +24,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest pyinstaller
 
+      - name: Navigate to counter directory
+        run: cd counter
+
       - name: Build project
-        run: make build
+        run: |
+          cd counter
+          make build
 
   test:
     runs-on: ubuntu-latest
@@ -43,8 +48,13 @@ jobs:
         run: |
           pip install pytest
 
+      - name: Navigate to counter directory
+        run: cd counter
+
       - name: Run tests
-        run: make test
+        run: |
+          cd counter
+          make test
 
   package:
     runs-on: ubuntu-latest
@@ -63,14 +73,19 @@ jobs:
           python -m pip install --upgrade pip
           pip install pyinstaller
 
+      - name: Navigate to counter directory
+        run: cd counter
+
       - name: Build Debian package
-        run: make build-deb
+        run: |
+          cd counter
+          make build-deb
 
       - name: Upload .deb as artifact
         uses: actions/upload-artifact@v4
         with:
           name: counter-deb-package
-          path: counter_service-v2.0.0.deb
+          path: counter/counter_service-v2.0.0.deb  # Update path to include /counter
 
   lint:
     runs-on: ubuntu-latest
@@ -94,5 +109,10 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y lintian
 
+      - name: Navigate to counter directory
+        run: cd counter
+
       - name: Lint Debian package
-        run: make lint-deb 
+        run: |
+          cd counter
+          make lint-deb
