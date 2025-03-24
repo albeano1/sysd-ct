@@ -1,0 +1,17 @@
+[Unit]
+Description=Simple Counter Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /usr/local/bin/counter_service.py
+Restart=always
+User=counter
+Group=counter
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
+
+
+
