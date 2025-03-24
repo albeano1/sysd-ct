@@ -35,7 +35,7 @@ jobs:
 
       - name: Build project
         run: |
-          cd counter/usr/local/bins/local/bin
+          cd counter/usr/local/bins
           make build
 
   test:
