@@ -5,7 +5,9 @@ import os
 from datetime import datetime
 
 running = True
-user = os.getlogin()  # Get the current username
+
+# Replace os.getlogin() with a more robust method
+user = os.getenv('USER') or os.getenv('LOGNAME') or 'unknown_user'
 
 def handle_sigterm(signum, frame):
     global running
