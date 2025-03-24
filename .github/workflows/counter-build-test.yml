@@ -24,18 +24,18 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest pyinstaller
 
-      - name: Navigate to counter/usr directory
-        run: cd counter/usr
+      - name: Navigate to counter/usr/local/bin directory
+        run: cd counter/usr/local/bin
 
       - name: Debug repository contents
         run: |
-          cd counter/usr
+          cd counter/usr/local/bin
           ls -la
           cat Makefile
 
       - name: Build project
         run: |
-          cd counter/usr
+          cd counter/usr/local/bin
           make build
 
   test:
@@ -55,12 +55,12 @@ jobs:
         run: |
           pip install pytest
 
-      - name: Navigate to counter/usr directory
-        run: cd counter/usr
+      - name: Navigate to counter/usr/local/bin directory
+        run: cd counter/usr/local/bin
 
       - name: Run tests
         run: |
-          cd counter/usr
+          cd counter/usr/local/bin
           make test
 
   package:
@@ -81,19 +81,19 @@ jobs:
           python -m pip install --upgrade pip
           pip install pyinstaller
 
-      - name: Navigate to counter/usr directory
-        run: cd counter/usr
+      - name: Navigate to counter/usr/local/bin directory
+        run: cd counter/usr/local/bin
 
       - name: Build Debian package
         run: |
-          cd counter/usr
+          cd counter/usr/local/bin
           make build-deb
 
       - name: Upload .deb as artifact
         uses: actions/upload-artifact@v4
         with:
           name: counter-deb-package
-          path: counter/usr/counter_service-v2.0.0.deb
+          path: counter/usr/local/bin/counter_service-v2.0.0.deb
 
   lint:
     runs-on: ubuntu-latest
@@ -118,10 +118,10 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y lintian
 
-      - name: Navigate to counter/usr directory
-        run: cd counter/usr
+      - name: Navigate to counter/usr/local/bin directory
+        run: cd counter/usr/local/bin
 
       - name: Lint Debian package
         run: |
-          cd counter/usr
+          cd counter/usr/local/bin
           make lint-deb
