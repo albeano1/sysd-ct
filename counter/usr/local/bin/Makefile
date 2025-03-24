@@ -10,9 +10,17 @@ DEB_NAME = $(PROJECT_NAME)-v$(VERSION).deb
 .PHONY: all
 all: build
 
+# Install dependencies
+.PHONY: install-deps
+install-deps:
+	@if ! command -v pyinstaller >/dev/null 2>&1; then \
+		echo "PyInstaller not found. Installing..."; \
+		pip install pyinstaller; \
+	fi
+
 # Build the binary using PyInstaller
 .PHONY: build
-build:
+build: install-deps
 	rm -rf $(BUILD_DIR) $(DIST_DIR)  # Clean old builds
 	mkdir -p $(BUILD_DIR) $(DIST_DIR)  
 	pyinstaller --onefile --name=$(PROJECT_NAME) $(SCRIPT_NAME) --distpath $(DIST_DIR)
