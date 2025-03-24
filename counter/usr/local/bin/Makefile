@@ -50,4 +50,5 @@ lint-deb: build-deb
 		echo "Error: lintian is not installed. Please install it using 'sudo apt-get install lintian'."; \
 		exit 1; \
 	fi
+	@echo "Linting Debian package: $(DEB_NAME)"
 	lintian "$(DEB_NAME)"
