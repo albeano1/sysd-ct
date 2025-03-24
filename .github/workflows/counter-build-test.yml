@@ -24,18 +24,18 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest pyinstaller
 
-      - name: Navigate to counter/usr/local/bin directory
-        run: cd counter/usr/local/bin
+      - name: Navigate to counter/usr directory
+        run: cd counter/usr
 
       - name: Debug repository contents
         run: |
-          cd counter/usr/local/bin
+          cd counter/usr
           ls -la
           cat Makefile
 
       - name: Build project
         run: |
-          cd counter/usr/local/bin
+          cd counter/usr
           make build
 
   test:
@@ -115,10 +115,10 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y lintian
 
-      - name: Navigate to counter/usr/local/bin directory
-        run: cd counter/usr/local/bin
+      - name: Navigate to counter/usr directory
+        run: cd counter/usr
 
       - name: Lint Debian package
         run: |
-          cd counter/usr/local/bin
+          cd counter/usr
           make lint-deb
