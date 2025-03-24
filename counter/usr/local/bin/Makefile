@@ -1,9 +1,10 @@
 # Project variables
-PROJECT_NAME = counter-service  # Use hyphen (-) instead of underscore (_) in project name
+PROJECT_NAME = counter-service  # Use hyphen (-) for the project name
+SCRIPT_NAME = counter_service.py  # Use the actual script filename (with underscore)
 VERSION = 2.0.0
 BUILD_DIR = build
 DIST_DIR = dist
-DEB_NAME = $(PROJECT_NAME)-v$(VERSION).deb  # Use hyphen (-) instead of underscore (_) in version
+DEB_NAME = $(PROJECT_NAME)-v$(VERSION).deb
 
 # Default target
 .PHONY: all
@@ -14,7 +15,7 @@ all: build
 build:
 	rm -rf $(BUILD_DIR) $(DIST_DIR)  # Clean old builds
 	mkdir -p $(BUILD_DIR) $(DIST_DIR)  
-	pyinstaller --onefile --name=$(PROJECT_NAME) $(PROJECT_NAME).py --distpath $(DIST_DIR)
+	pyinstaller --onefile --name=$(PROJECT_NAME) $(SCRIPT_NAME) --distpath $(DIST_DIR)
 
 # Run the program
 .PHONY: run
