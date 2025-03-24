@@ -27,3 +27,24 @@ jobs:
       - name: Build project
         run: |
           make build
+
+  test:
+    name: Test Project
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install Make (if needed)
+        run: sudo apt-get install make
+
+      - name: Run tests
+        run: |
+          make test

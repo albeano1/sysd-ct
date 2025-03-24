@@ -29,8 +29,8 @@ clean:
 # Unit Testing
 .PHONY: test
 test:
-	@PYTHONPATH=$(PWD) pytest tests/
-.PHONY: test
+	@echo "Running unit tests..."
+	PYTHONPATH=$(PWD) pytest tests/
 
 # Lint the Debian package
 .PHONY: lint-deb
