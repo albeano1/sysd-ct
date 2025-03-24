@@ -4,7 +4,7 @@ set -e
 
 PROJECT_NAME="counter_service"
 VERSION="2.0.0"
-BUILD_DIR="build"
+DIST_DIR="dist"  # Updated to match the Makefile
 DEB_NAME="${PROJECT_NAME}-v${VERSION}.deb"
 INSTALL_DIR="/usr/local/bin"
 
@@ -14,8 +14,8 @@ mkdir -p $PKG_DIR/DEBIAN
 mkdir -p $PKG_DIR/$INSTALL_DIR
 mkdir -p $PKG_DIR/lib/systemd/system
 
-# Copy binary
-cp $BUILD_DIR/$PROJECT_NAME $PKG_DIR/$INSTALL_DIR/
+# Copy binary from the dist directory
+cp $DIST_DIR/$PROJECT_NAME $PKG_DIR/$INSTALL_DIR/
 
 # Create control file
 cat <<EOF > $PKG_DIR/DEBIAN/control
